@@ -4,7 +4,7 @@ Everyone: Figure out github.
 
 Sergiu: Server/ Coding base
 
-Harjan:
+Harjan: Music Database (Artists, Albums, Genres, etc)
 
 Kyle:
 
