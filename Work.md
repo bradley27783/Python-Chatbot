@@ -10,6 +10,6 @@ Kyle:
 
 Adrian
 
-Bradley: 
+Bradley: Trending songs (Automated top 10)
 
 Georgios: 
