@@ -8,7 +8,7 @@ Harjan: Music Database (Artists, Albums, Genres, etc)
 
 Kyle:
 
-Adrian
+Adrian: 1.Music Playlist Based on moods (Keywords for different Moods)
 
 Bradley: Trending songs (Automated top 10)
 
