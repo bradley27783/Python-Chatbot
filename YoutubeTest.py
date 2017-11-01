@@ -4,7 +4,7 @@ import urllib.parse
 import re
 import pafy
 import json
-import http
+import webbrowser
 
 query_string = urllib.parse.urlencode({"search_query" : input("Type a song... ")})
 html_content = urllib.request.urlopen("http://www.youtube.com/results?" + query_string)
@@ -14,4 +14,4 @@ video = pafy.new(url)
 print(video.title)
 choice1 = input("Is this the correct song? (Y/n) ")
 if choice1 == 'Y':
-    urllib.request.urlopen(url)
+    webbrowser.open_new(url)
