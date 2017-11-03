@@ -1,17 +1,21 @@
 
-#If accountMain is True, then the username has successfully logged in
-
+#If accountMain is True, then the user has successfully logged in
 
 def accountMain():
     """Manages the bulk of account related operations."""
-  
-    x=int(input("Do you have an account?\n1-Yes\n0-No\n"))
+    while True:
+        x=input("Do you have an account?\n1-Yes\n0-No\n")
+        if x=="1" or x=="0":
+            x=int(x)
+            break
+        else:
+            print("Only 1 or 0 please.")
     while True:    
         if x==0:
             n=createUsername()   #the n lets people stop the account creation
             createPassword(n)   #stops this function 
             if n!=0:		
-              print("\nThank you for creating an account!\n")
+                print("\nThank you for creating an account!\n")
             x=1
         elif x==1:
             username=input("Username: ")
@@ -50,9 +54,15 @@ def createUsername():
         for word in list1:   #checks username entry against the database to spot duplicates 
             if username==word:
                     print("Sorry, this username is taken.")
-                    z=input("Do you still want to make an account?\n1-Yes\n0-No\n")
+                    while True:
+                        z=input("Do you still want to make an account?\n1-Yes\n0-No\n")
+                        if z=="0" or z=="1":
+                            z=int(z)
+                            break
+                        else:
+                            print("Only 1 or 0 please.")
                     n+=1     #the z here takes care of people who already have an account
-        if int(z)==0:   #lets people break the loop and use their existent account 
+        if z==0:   #lets people break the loop and use their existent account 
             string1=" ".join(list1)
                 #turns list into a string, to add to the file
             f1.write(string1)
@@ -60,8 +70,14 @@ def createUsername():
             return(0)
         if n>1:
             continue
-        y=input("Are you happy with the username " + username + "?\n1-Yes\n0-No\n")
-        if int(y)==0:   #makes sure the username is not mispelled 
+        while True:
+            y=input("Are you happy with the username " + username + "?\n1-Yes\n0-No\n")
+            if y=="0" or y=="1":
+                y=int(y)
+                break
+            else:
+                print("Only 1 or 0 please.")
+        if y==0:   #makes sure the username is not mispelled 
             continue 
         list1.append(username)
         string1=" ".join(list1)
@@ -72,7 +88,7 @@ def createUsername():
 
 def createPassword(n):
     if n==0:   #in case people don't want to create the account 
-      return(0)
+        return(0)
     f2= open("pass.txt", "r")
         #we open it in read mode
     string2= f2.read()
@@ -87,20 +103,20 @@ def createPassword(n):
         #open in write mode, deletes file first
     
     while True:
-      password=input("What do you want your password to be? ")
-      passwordCheck=input("Confirm your password: ")
-      if passwordCheck!=password:
-        print("Passwords don't match.")
-        continue
-      if " " in password or password=="":
-        print("Passwords can't be blank or contain spaces.")
-        continue
-      list2.append(password)
-      string2=" ".join(list2)
+        password=input("What do you want your password to be? ")
+        passwordCheck=input("Confirm your password: ")
+        if passwordCheck!=password:
+            print("Passwords don't match.")
+            continue
+        if " " in password or password=="":
+            print("Passwords can't be blank or contain spaces.")
+            continue
+        list2.append(password)
+        string2=" ".join(list2)
            #turns list into a string, to add to the file
-      f2.write(string2)
-      f2.close()
-      break
+        f2.write(string2)
+        f2.close()
+        break
       
 def login(username,password):
     f1= open("user.txt", "r")
@@ -114,24 +130,27 @@ def login(username,password):
     f2.close()
     
     if not(username in list1):
-      w=int(input("It seems you don't have an account. \nWould you like to create one?\n1-Yes\n0-No\n"))
-      if w==1:
-        return(0)
-      elif w==0:
-        return(1)
+        while True:
+            w=input("It seems you don't have an account. \nWould you like to create one?\n1-Yes\n0-No\n")
+            if w=="0" or w=="1":
+                w=int(w)
+                break
+            else:
+                print("Only 1 or 0 please.")
+        if w==1:
+            return(0)
+        elif w==0:
+            return(1)
       
     i=-1
     for name in list1:
-      i+=1
-      if username==name:
-        if list2[i]==password:
-          return(7)   #avoids errors, 7=TRUE
-        else:
-          print("Login failed.")
-          return(4)   #4=FALSE
+        i+=1
+        if username==name:
+            if list2[i]==password:
+                return(7)   #avoids errors, 7=TRUE
+            else:
+                print("Login failed.")
+                return(4)   #4=FALSE
     
     
 print("\n" + str(accountMain()) +"\n")
-
-
-
