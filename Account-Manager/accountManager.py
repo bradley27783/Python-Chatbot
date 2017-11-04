@@ -21,8 +21,8 @@ def accountMain():
             username=input("Username: ")
             password=input("Password: ")
             variable=login(username,password)  #Assigns the return value from the login function
-            if variable==4:    #4 means login failed
-                return(False)  
+            if variable==4: #4 means login failed
+                x=1
             elif variable==7:    #7 means login confirmed 
                 return(True)        
             else:
@@ -40,8 +40,6 @@ def createUsername():
         #checks entries
     f1.close()
         #look into changing this line
-    f1=open("user.txt","w")
-        #open in write mode, deletes file first
  
     while True:
         username=input("What do you want your username to be? ")
@@ -53,20 +51,16 @@ def createUsername():
         z=1
         for word in list1:   #checks username entry against the database to spot duplicates 
             if username==word:
-                    print("Sorry, this username is taken.")
-                    while True:
-                        z=input("Do you still want to make an account?\n1-Yes\n0-No\n")
-                        if z=="0" or z=="1":
-                            z=int(z)
-                            break
-                        else:
-                            print("Only 1 or 0 please.")
-                    n+=1     #the z here takes care of people who already have an account
+                print("Sorry, this username is taken.")
+                while True:
+                    z=input("Do you still want to make an account?\n1-Yes\n0-No\n")
+                    if z=="0" or z=="1":
+                        z=int(z)
+                        break
+                    else:
+                        print("Only 1 or 0 please.")
+                n+=1     #the z here takes care of people who already have an account
         if z==0:   #lets people break the loop and use their existent account 
-            string1=" ".join(list1)
-                #turns list into a string, to add to the file
-            f1.write(string1)
-            f1.close()
             return(0)
         if n>1:
             continue
@@ -79,6 +73,8 @@ def createUsername():
                 print("Only 1 or 0 please.")
         if y==0:   #makes sure the username is not mispelled 
             continue 
+        f1=open("user.txt","w")
+        #open in write mode, deletes file first
         list1.append(username)
         string1=" ".join(list1)
                 #turns list into a string, to add to the file
@@ -99,8 +95,6 @@ def createPassword(n):
         #checks entries
     f2.close()
         #look into changing this line
-    f2=open("pass.txt","w")
-        #open in write mode, deletes file first
     
     while True:
         password=input("What do you want your password to be? ")
@@ -111,13 +105,15 @@ def createPassword(n):
         if " " in password or password=="":
             print("Passwords can't be blank or contain spaces.")
             continue
+        f2=open("pass.txt","w")
+           #open in write mode, deletes file first
         list2.append(password)
         string2=" ".join(list2)
            #turns list into a string, to add to the file
         f2.write(string2)
         f2.close()
         break
-      
+        
 def login(username,password):
     f1= open("user.txt", "r")
     string1= f1.read()
@@ -131,7 +127,7 @@ def login(username,password):
     
     if not(username in list1):
         while True:
-            w=input("It seems you don't have an account. \nWould you like to create one?\n1-Yes\n0-No\n")
+            w=input("This username isn't linked to any account. \nWould you like to create one?\n1-Yes\n0-No\n")
             if w=="0" or w=="1":
                 w=int(w)
                 break
@@ -149,8 +145,11 @@ def login(username,password):
             if list2[i]==password:
                 return(7)   #avoids errors, 7=TRUE
             else:
-                print("Login failed.")
+                print("Credentials don't match our database.")
                 return(4)   #4=FALSE
     
     
-print("\n" + str(accountMain()) +"\n")
+try:
+    print("\n" + str(accountMain()) +"\n")
+except KeyboardInterrupt:
+    print("\nShuting down.")
