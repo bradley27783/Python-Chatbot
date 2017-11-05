@@ -3,6 +3,26 @@
 
 def accountMain():
     """Manages the bulk of account related operations."""
+    while __name__=="__main__":  # the database can only be deleted if someone runs the function from this file
+        x=input("Do you want to erase the database? Input 1 if yes.")
+        if x!="1":
+            break
+        x=input("What is the secret password for this action?\n") 
+                    #extra precaution since it is quite a big deal 
+        if x=="I am not a good person":  #this is the password
+            print("Alright cowboy.")
+            file1=open("user.txt","w")  #opens in write mode, deletes file
+            file2=open("pass.txt","w")
+            file1.close()     #close them without writing anything: basically wipes the files
+            file2.close()
+            x=input("Do you still want to go into the main program? Input 1 if yes.") #option to leave the AccountManager
+            if x!="1":
+                return("")   #stops the function
+            else:
+                break   #returns to the main program
+        else:
+            print("Wrong")
+            return("")   #if the user gets the wrong pass, stops the program
     while True:
         x=input("Do you have an account?\n1-Yes\n0-No\n")
         if x=="1" or x=="0":
@@ -24,7 +44,7 @@ def accountMain():
             if variable==4: #4 means login failed
                 x=1
             elif variable==7:    #7 means login confirmed 
-                return(True)        
+                return(username)   #it returns the username, makes life easier in the client file     
             else:
                 x=int(variable)   #if x=0, the user creates an account, otherwise he just retries to login
                 
@@ -149,7 +169,8 @@ def login(username,password):
                 return(4)   #4=FALSE
     
     
-try:
-    print("\n" + str(accountMain()) +"\n")
-except KeyboardInterrupt:
-    print("\nShuting down.")
+if __name__=="__main__":
+    try:
+        print("\n" + str(bool(accountMain())) +"\n")
+    except KeyboardInterrupt:
+        print("\nShuting down.")
