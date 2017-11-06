@@ -36,29 +36,29 @@ if choice1 == '1':
     print("Goodbye :)")
     time.sleep(0.5)
     webbrowser.open_new(url1)       #Opens the url in your default browser
-if choice1 == '2':
+elif choice1 == '2':
     print("Opening Browser...")
     time.sleep(1)
     print("Goodbye :)")
     time.sleep(0.5)
     webbrowser.open_new(url2)
-if choice1 == '3':
+elif choice1 == '3':
     print("Opening Browser...")
     time.sleep(1)
     print("Goodbye :)")
     time.sleep(0.5)
     webbrowser.open_new(url3)
-if choice1 == '4':
+elif choice1 == '4':
     print("Opening Browser...")
     time.sleep(1)
     print("Goodbye :)")
     time.sleep(0.5)
     webbrowser.open_new(url4)
-if choice1 == '5':
+elif choice1 == '5':
     print("Opening Browser...")
     time.sleep(1)
     print("Goodbye :)")
     time.sleep(0.5)
     webbrowser.open_new(url5)
-else:
-    print("Sorry that was not an option, try again")
+    else:
+        print("Sorry that was not an option, try again")
