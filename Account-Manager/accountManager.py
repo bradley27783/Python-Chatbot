@@ -1,12 +1,11 @@
 
 #If accountMain is True, then the user has successfully logged in
 
-def accountMain():
-    """Manages the bulk of account related operations."""
-    while __name__=="__main__":  # the database can only be deleted if someone runs the function from this file
+def deleteDatabase(boolean):
+    if boolean and __name__=="__main__":   # the database can only be deleted if someone runs the function from this file
         x=input("Do you want to erase the database? Input 1 if yes.")
         if x!="1":
-            break
+            return(False)
         x=input("What is the secret password for this action?\n") 
                     #extra precaution since it is quite a big deal 
         if x=="I am not a good person":  #this is the password
@@ -15,14 +14,21 @@ def accountMain():
             file2=open("pass.txt","w")
             file1.close()     #close them without writing anything: basically wipes the files
             file2.close()
+            print("I've felt a great disturbance in the force. As if millions of passwords were wiped out of existence.")
             x=input("Do you still want to go into the main program? Input 1 if yes.") #option to leave the AccountManager
             if x!="1":
-                return("")   #stops the function
+                return(False)   #stops the function
             else:
-                break   #returns to the main program
+                return(True)   #returns to the main program
         else:
             print("Wrong")
-            return("")   #if the user gets the wrong pass, stops the program
+            return("")
+
+def accountMain():
+    if deleteDatabase("")==False:
+        reutrn()            #put any numbers here to commence the database wipe
+    """Manages the bulk of account related operations."""
+      #if the user gets the wrong pass, stops the program
     while True:
         x=input("Do you have an account?\n1-Yes\n0-No\n")
         if x=="1" or x=="0":
@@ -41,9 +47,9 @@ def accountMain():
             username=input("Username: ")
             password=input("Password: ")
             variable=login(username,password)  #Assigns the return value from the login function
-            if variable==4: #4 means login failed
+            if variable==False: #4 means login failed
                 x=1
-            elif variable==7:    #7 means login confirmed 
+            elif variable==True:    #7 means login confirmed 
                 return(username)   #it returns the username, makes life easier in the client file     
             else:
                 x=int(variable)   #if x=0, the user creates an account, otherwise he just retries to login
@@ -163,10 +169,10 @@ def login(username,password):
         i+=1
         if username==name:
             if list2[i]==password:
-                return(7)   #avoids errors, 7=TRUE
+                return(True)   #avoids errors, 7=TRUE
             else:
                 print("Credentials don't match our database.")
-                return(4)   #4=FALSE
+                return(False)   #4=FALSE
     
     
 if __name__=="__main__":
