@@ -47,12 +47,13 @@ def accountMain():
             username=input("Username: ")
             password=input("Password: ")
             variable=login(username,password)  #Assigns the return value from the login function
-            if variable==False: #4 means login failed
+            if variable== 0 or variable==1:
+                x=int(variable)
+            elif variable==False: #4 means login failed
                 x=1
             elif variable==True:    #7 means login confirmed 
                 return(username)   #it returns the username, makes life easier in the client file     
-            else:
-                x=int(variable)   #if x=0, the user creates an account, otherwise he just retries to login
+               #if x=0, the user creates an account, otherwise he just retries to login
                 
             
 def createUsername():
