@@ -31,9 +31,8 @@ def getMusic():
         print("3." + video3.title)
         print("4." + video4.title)
         print("5." + video5.title)
-        choice1 = input("Choose the correct song by typing the correct number: ")
-        print("Type END to exit. ")
         while True:
+                choice1 = input("Choose the correct song by typing the correct number: ")
                 if choice1 == '1':
                         print("Opening Browser...")
                         time.sleep(1)
