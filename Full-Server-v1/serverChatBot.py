@@ -18,9 +18,7 @@ def serverBackbone():
         receiveMess = conn.recv(1024).decode()
         if not receiveMess:
             break    #this ends the looop when the clients disconnects
-          
-        from userInput import emotionHandler
-        returnMess=emotionHandler(receiveMess)
+       
           
           #   This is where the main body of our chatbot will be, where we call other functions, and so on
           #   At the moment I am printing some things back to the user for us to see that it does work

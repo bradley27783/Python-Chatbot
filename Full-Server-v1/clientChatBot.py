@@ -16,9 +16,15 @@ def clientBackbone():
     message = input(user + ": ")
         #we initialise it here in order to prevent an error
     while message != "end":    #keeps the conversation open until the user types end
+        from youtube import getMusic
+        
+        if "music" in message:
+            getMusic()
+        
         thisSocket.send(message.encode())
               #send the message to the server
         receivedMess = thisSocket.recv(1024).decode()
+        
         
           # This is the same deal like with the server, this is where we will input the actual "music"
           # At the moment I will just put a placeholder print function, to see that it works
