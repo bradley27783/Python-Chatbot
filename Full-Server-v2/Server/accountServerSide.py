@@ -1,7 +1,16 @@
 def accountServerSide(dictionary):
+    if __name__=="__main__":
+        x=input("Do you want to delete the database?\n")
+        if x == "Yes, I do, avocados are great.":
+            f1=open("database.txt","w")
+            print("You monster.")
+            f1.close()
+        else:
+            print("Nah, fam.")
+        return()
     username=dictionary["username"]
     password=dictionary["password"]
-    check=str(dictionary["check"])
+    login=str(dictionary["login"])
     
     f1= open("database.txt", "r")
         #we open it in read mode
@@ -16,7 +25,7 @@ def accountServerSide(dictionary):
     listUser=list1[0:int(x/2)]
     listPass=list1[int(x/2):x]
     
-    if check == "False":
+    if login == "False":
         if username in listUser:
             return(1)
         listUser.append(username)
@@ -41,4 +50,9 @@ def accountServerSide(dictionary):
     return(2)
 
 
-    
+if __name__=="__main__":
+    try:
+        dictionary={}
+        accountServerSide(dictionary)
+    except KeyboardInterrupt:
+        print("Shutting down.")

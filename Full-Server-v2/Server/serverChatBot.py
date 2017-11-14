@@ -27,12 +27,12 @@ def serverBackbone():
         dictionary={}
         while n==0 or n==1:
             receiveMess = conn.recv(1024).decode()
-  
-            receiveMess= receiveMess.split("       ")
             
+            receiveMess= receiveMess.split("       ")
+            print(receiveMess)
             dictionary["username"]=receiveMess[0]
             dictionary["password"]=receiveMess[1]
-            dictionary["check"]=receiveMess[2]
+            dictionary["login"]=receiveMess[2]
             
             n=accountServerSide(dictionary)
             
@@ -43,7 +43,7 @@ def serverBackbone():
                 conn.send(returnMess.encode())
                 continue
             if n == 7:
-                returnMess="You have successfullly logged in!"
+                returnMess="Confirmed"
             else: 
                 returnMess=str(n)
             
