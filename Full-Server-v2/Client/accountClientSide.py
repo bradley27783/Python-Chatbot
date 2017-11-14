@@ -17,13 +17,13 @@ def accountClientSide(userCount):
         if x==0:
             dictionary["username"]=createUsername(userCount)   
             dictionary["password"]=createPassword()
-            dictionary["check"]="False"
+            dictionary["login"]="False"
             x=1
             return(dictionary)
         elif x==1:
             dictionary["username"]=input("Username: ")
             dictionary["password"]=input("Password: ")
-            dictionary["check"]="True"
+            dictionary["login"]="True"
             return(dictionary)
             
 def createUsername(userCount):

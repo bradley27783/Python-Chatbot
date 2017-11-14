@@ -18,9 +18,9 @@ def clientBackbone():
         
         username=dictionary["username"]
         password=dictionary["password"]
-        check=dictionary["check"]
+        login=dictionary["login"]
         
-        sentMsg= username+ "       " +password + "       " + check
+        sentMsg= username+ "       " +password + "       " + login
         
         thisSocket.send(sentMsg.encode())
         
@@ -28,7 +28,7 @@ def clientBackbone():
         if n== "Wrong":
             print("Credentials don't match out database.")
             n=0
-        if n== "You have successfullly logged in!":
+        if n== "Confirmed":
             print("You have successfullly logged in!")
             break
         else:
