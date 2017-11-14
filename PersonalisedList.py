@@ -13,11 +13,6 @@ artistList = open(filename, "r")
 artistList = artistList.read()
 artistList = artistList.split(',')
 
-
-
-
-#artist=input("Artist?")#Should be made to take the input(artist)everytime user searches somthing
-#Top10List.append(artist)#Adds to list
 print("Your Top 10 Artists are:")
 
 for count, elem in sorted(((artistList.count(e), e) for e in set(artistList)), reverse=True):
