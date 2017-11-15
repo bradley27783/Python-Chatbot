@@ -15,4 +15,7 @@ def facts():
         print("Rick left school at the age of 16. He drove a delivery van for his family's business, a garden store.")
         print("Rick Astley is listed in the Guiness Book of World Records for being the first male solo artist to have his first 8 singles reach the Top 10 in the UK. This feat has never been repeated since.")
         print("")
+    if artist=="elo"or"Electric Light Orchestra"
+        print("The Electric Light Orchestra are an English rock band formed in Birmingham in 1970, by songwriters/multi-instrumentalists Jeff Lynne and Roy Wood with drummer Bev Bevan.")
+        print("An early member of 1970s British rock group ELO was killed in a "freak" accident when his van was crushed by a bale of hay, police said. Cellist Mike Edwards, 62, died instantly in the accident on the A381 in Halwell, Devon, on Friday.")
 facts()
