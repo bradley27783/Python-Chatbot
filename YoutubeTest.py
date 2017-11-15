@@ -42,8 +42,7 @@ def getMusic():
         print("4." + video4.title)
         print("5." + video5.title)
         while True:
-                choice1 = input("Choose the correct song by typing the correct number: ")
-                print("Press Enter to see the next 5 options... ")
+                choice1 = input("Choose the correct song by typing the correct number:\nPress Enter to see the next 5 options...............:")
 
                 if choice1 == '1':
                         print("Opening Browser...")
@@ -163,6 +162,5 @@ def getMusic():
                         
                 else:
                         print("Sorry that was not an option, try again")
-
 
 getMusic()
