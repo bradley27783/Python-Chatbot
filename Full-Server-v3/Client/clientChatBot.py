@@ -2,7 +2,7 @@ import socket,sys,time
 
 def clientBackbone():
     host = "127.0.0.1"
-    port = 5008
+    port = 5009
         #credentials needed to connect to the server
     thisSocket = socket.socket()
     thisSocket.connect((host,port))
@@ -34,28 +34,57 @@ def clientBackbone():
         else:
             n=int(n)
     
-    print("You can now start chatting with Zach! Go on, say something.")
-    message = input()
+    print("You can now start chatting with Zach!")
         #we initialise it here in order to prevent an error
-    while message != "end":    #keeps the conversation open until the user types end
+    
+    thisSocket.send(" ".encode())
+    
+    infoString= thisSocket.recv(1024).decode()
+    
+    userInfoList=infoString.split(" ")
+    
+    if userInfoList[0] == "" or userInfoList == " ":
+        print("It seems it's the first time you've ever logged in!")
+        while True:
+            terminalName = input("Input a name which the chatbot will call you: ") 
+            if " " in terminalName or terminalName=="":
+                print("Sorry, usernames can't be blank or contain spaces.")
+            else:
+                break
+        terminalName= "   456   " + terminalName
+        thisSocket.send(terminalName.encode())
+        
+        terminalName= thisSocket.recv(1024).decode()
+        print("Everything is in order! Thanks.")
+    else:
+        terminalName=userInfoList[0]
+    
+    while True:    #keeps the conversation open until the user types end
+        
+        message = input(terminalName + ": ")
+        
+        if message == "end":
+            break
+            
         from youtube import getMusic
+        from manualplaylistCreator import manualCreatePlaylist
         
-        if "music" in message:
+        if "music" in message and "play" in message:
             getMusic()
-        
+        elif "create" in message and "playlist" in message:
+            pass#manualCreatePlaylist()
+        else:
+            message="Whoops we haven't coded that in yet"
+            
         thisSocket.send(message.encode())
               #send the message to the server
+                              
         receivedMess = thisSocket.recv(1024).decode()
+                     
+        print("Zach: ",end="") 
+        print(receivedMess)    #Name of ChatBot
+               
         
-        
-          # This is the same deal like with the server, this is where we will input the actual "music"
-          # At the moment I will just put a placeholder print function, to see that it works
-          
-        from userInput import slow_type  #function which makes Zach type like a human
-         
-        print("Zach: ",end="")   #Name of ChatBot
-        slow_type(receivedMess)   #calls the slow_type function 
-        message = input(user + ": ")
               #we ask the user to input some more text, keep the conversation open
     thisSocket.close()
         #when the user types end, the loop breaks, and the connection closes

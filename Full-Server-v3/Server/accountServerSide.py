@@ -1,3 +1,5 @@
+import pickle
+
 def accountServerSide(dictionary):
     if __name__=="__main__":
         x=input("Do you want to delete the database?\n")
@@ -5,9 +7,9 @@ def accountServerSide(dictionary):
             f1=open("database.txt","w")
             print("You monster.")
             f1.close()
+            return()
         else:
             print("Nah, fam.")
-        return()
     username=dictionary["username"]
     password=dictionary["password"]
     login=str(dictionary["login"])
@@ -28,9 +30,11 @@ def accountServerSide(dictionary):
     if login == "False":
         if username in listUser:
             return(1)
+        
+        clientInfoRegister(username)
+        
         listUser.append(username)
         listPass.append(password)
-        list1=listUser+listPass
         
         f1=open("database.txt","w")        
         list1=listUser+listPass    
@@ -50,9 +54,53 @@ def accountServerSide(dictionary):
     return(2)
 
 
+def clientInfoRegister(username):
+    dictionaryInfo={}   
+    
+    try:
+        f2=open("clientInfo.txt","rb")
+        dictionaryInfo = pickle.load(f2)  
+        f2.close()
+    except EOFError:
+        pass
+    dictionaryInfo[username]=["","",""] 
+    f3=open("clientInfo.txt","wb")
+    pickle.dump(dictionaryInfo,f3)
+    f3.close()
+    
+    return()
+
+def infoHub(username,terminalName,curseCounter,placeholder):
+    
+    f2=open("clientInfo.txt","rb")
+    dictionaryInfo = pickle.load(f2)
+    f2.close()
+    
+    list1 = dictionaryInfo[username]
+    
+    if terminalName:
+        list1[0] = terminalName
+    elif curseCounter:
+        list1[1] = curseCounter
+    elif placeholder:
+        list1[2] = placeholder
+    else:
+        print("User info:" + str(list1))
+        return(list1)
+    
+    dictionaryInfo[username]=list1
+    
+    print(dictionaryInfo)
+    
+    f3=open("clientInfo.txt","wb")
+    pickle.dump(dictionaryInfo,f3)
+    f3.close()
+    
+
 if __name__=="__main__":
     try:
-        dictionary={}
-        accountServerSide(dictionary)
+        dictionary={"username":"sergiu","password":"test1","login":"False"}
+        print(accountServerSide(dictionary))
+        print(infoHub("sergiu","","",""))
     except KeyboardInterrupt:
         print("Shutting down.")

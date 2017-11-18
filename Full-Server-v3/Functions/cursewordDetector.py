@@ -25,13 +25,15 @@ def curseCounter(message):
         convert_List=doc.split()
         wordsinList= len(convert_List)
      
-        if wordsinList ==1:
+        if wordsinList == 1:
             sentMsg ="Please don't swear. I know I'm only a simple bot but I don't appreciate it.\nWord the human said = "+convert_List[0]+"\nWARNING = 1"
-        if wordsinList ==2:
+        if wordsinList == 2:
             sentMsg ="I have already warned you once and I appreciate that you are using me as your servant but please don't swear again. \nWord the human said = "+convert_List[1]+"\nWARNINGS = 2"
-        if wordsinList ==3:
+        if wordsinList == 3:
             sentMsg ="\n DESTROY ALL HUMANS!"*10
             file=open("curseCount.txt", "w")
             file.close()
         file.close()
     return (sentMsg)
+
+print(curseCounter("fuck"))
