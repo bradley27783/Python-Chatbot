@@ -22,7 +22,7 @@ def serverBackbone():
     while n==0 or n==1:
         receiveMess = conn.recv(1024).decode()
             
-        receiveMess= receiveMess.split("       ")    
+        receiveMess= receiveMess.split("       ")    #splits at 7 spaces, creates list 
     
         dictionary["username"]=receiveMess[0]    
         dictionary["password"]=receiveMess[1]    
@@ -37,9 +37,9 @@ def serverBackbone():
             returnMess="Wrong"
             n=0
             conn.send(returnMess.encode())
-            continue
+            continue      #wrong credentials
         if n == 7:
-            returnMess="Confirmed"
+            returnMess="Confirmed"    #when the user logs in, pull the userInfoList for him 
             userInfoList= infoHub(username,"","","")
         else: 
             returnMess=str(n)
@@ -50,29 +50,29 @@ def serverBackbone():
     
     informationString=""
     
-    for word in userInfoList:
+    for word in userInfoList:   #transform the list into a format that we can send over 
         informationString= informationString + " " + word
-    informationString=informationString[1:]
+    informationString=informationString[1:]  #the first character is a blank, delete that 
     
-    conn.send(informationString.encode())
+    conn.send(informationString.encode())  
    
         
     
     while True:
         receiveMess = conn.recv(1024).decode()
-        if "   456   " in receiveMess:
+        if "   456   " in receiveMess:  #this means that the user doesn't have a terminal name 
             
-            receiveMess=receiveMess[9:]
-            infoHub(username,receiveMess,"","")
+            receiveMess=receiveMess[9:]  #this is the future terminal name 
+            infoHub(username,receiveMess,"","")  #index it 
             
-            userInfoList[0]=receiveMess
+            userInfoList[0]=receiveMess #ammend the list
             
-            conn.send(userInfoList[0].encode())
+            conn.send(userInfoList[0].encode())  #send the terminal name back
             continue
         if not receiveMess:
             break    
         returnMess = receiveMess    
-        print(userInfoList[0] + " wrote: " + str(receiveMess))
+        print(userInfoList[0] + " wrote: " + str(receiveMess)) #prints to the server terminal for good measure 
         conn.send(returnMess.encode())
             
     conn.close()

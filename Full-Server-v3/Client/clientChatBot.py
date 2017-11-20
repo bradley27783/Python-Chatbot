@@ -16,34 +16,34 @@ def clientBackbone():
     while True:
         dictionary=accountClientSide(n)
         
-        username=dictionary["username"]
+        username=dictionary["username"]  #pulls out values from dictionary
         password=dictionary["password"]
         login=dictionary["login"]
         
         sentMsg= username+ "       " +password + "       " + login
-        
+                           #puts them into a string so we can send them accross 
         thisSocket.send(sentMsg.encode())
         
         n = thisSocket.recv(1024).decode()
-        if n== "Wrong":
+        if n== "Wrong":   
             print("Credentials don't match out database.")
             n=0
         if n== "Confirmed":
             print("You have successfullly logged in!")
             break
         else:
-            n=int(n)
+            n=int(n)  #the process starts again 
     
     print("You can now start chatting with Zach!")
-        #we initialise it here in order to prevent an error
+        
     
-    thisSocket.send(" ".encode())
+    thisSocket.send(" ".encode())   
     
     infoString= thisSocket.recv(1024).decode()
     
-    userInfoList=infoString.split(" ")
+    userInfoList=infoString.split(" ")   #gets a list from the server with all the info about the uesr 
     
-    if userInfoList[0] == "" or userInfoList == " ":
+    if userInfoList[0] == "" or userInfoList == " ":   #if the client doesn't have a name, ask him for one 
         print("It seems it's the first time you've ever logged in!")
         while True:
             terminalName = input("Input a name which the chatbot will call you: ") 
@@ -52,18 +52,18 @@ def clientBackbone():
             else:
                 break
         terminalName= "   456   " + terminalName
-        thisSocket.send(terminalName.encode())
+        thisSocket.send(terminalName.encode())   #index it into the server 
         
-        terminalName= thisSocket.recv(1024).decode()
+        terminalName= thisSocket.recv(1024).decode()   #receive it back
         print("Everything is in order! Thanks.")
     else:
-        terminalName=userInfoList[0]
+        terminalName=userInfoList[0]   #set the Terminal Name 
     
-    while True:    #keeps the conversation open until the user types end
+    while True:    
         
         message = input(terminalName + ": ")
         
-        if message == "end":
+        if message == "end": #keeps the conversation open until the user types end
             break
             
         from youtube import getMusic
@@ -84,10 +84,8 @@ def clientBackbone():
         print("Zach: ",end="") 
         print(receivedMess)    #Name of ChatBot
                
-        
-              #we ask the user to input some more text, keep the conversation open
     thisSocket.close()
-        #when the user types end, the loop breaks, and the connection closes
+       
     print("I hope you enjoyed our services!")
         #this is where we print a final statement to the user
 
