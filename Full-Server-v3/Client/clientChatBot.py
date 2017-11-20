@@ -2,7 +2,7 @@ import socket,sys,time
 
 def clientBackbone():
     host = "127.0.0.1"
-    port = 5009
+    port = 5008
         #credentials needed to connect to the server
     thisSocket = socket.socket()
     thisSocket.connect((host,port))
@@ -72,9 +72,9 @@ def clientBackbone():
         if "music" in message and "play" in message:
             getMusic()
         elif "create" in message and "playlist" in message:
-            pass#manualCreatePlaylist()
+            pass #manualCreatePlaylist()
         else:
-            message="Whoops we haven't coded that in yet"
+            pass #message="Whoops we haven't coded that in yet"
             
         thisSocket.send(message.encode())
               #send the message to the server
