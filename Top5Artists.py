@@ -1,13 +1,7 @@
 from collections import Counter
-import csv
 
-file = open("ArtList", 'r')
-lines = file.readlines()
-
-
-ArtistList = open(ArtList.txt, 'r')
-reader = csv.reader(ArtistList)
-allRows = [row for row in reader]
+#file = open("ArtList", 'r')
+#lines = file.readlines()
 
 
 #ArtistList=["Rihanna","Drake","Drake","DJ,Blue"]
