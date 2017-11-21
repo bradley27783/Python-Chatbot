@@ -1,5 +1,7 @@
 
 def accountClientSide(userCount):
+    """Takes an integer as an input, which determines if the user tried making an account
+    and that account exsited. Returns dictionary. Handles all account operations client side."""
     x=0
     if userCount==0:
         while True:
@@ -27,6 +29,7 @@ def accountClientSide(userCount):
             return(dictionary)
             
 def createUsername(userCount):
+    """Takes input an integer which determines what gets printed."""
     while True:
         if userCount == 0:
             username=input("What do you want your username to be? ")      
@@ -39,6 +42,7 @@ def createUsername(userCount):
         
 
 def createPassword(): 
+    """Self explanatory."""
     while True:
         password=input("What do you want your password to be? ")
         passwordCheck=input("Confirm your password: ")

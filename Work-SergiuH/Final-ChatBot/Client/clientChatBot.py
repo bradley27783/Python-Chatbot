@@ -2,13 +2,13 @@ import socket,sys,time
 
 def clientBackbone():
     host = "127.0.0.1"
-    port = 5008
+    port = 5009
         #credentials needed to connect to the server
     thisSocket = socket.socket()
     thisSocket.connect((host,port))
         #crucial bit of coding
     from accountClientSide import createUsername,createPassword,accountClientSide
-    from userInput import slow_type
+    from typing import slow_type
            #imports the functions involved with account management
     print("Welcome to Zach Industries! We will now prompt you with the account manager.")
     
@@ -71,11 +71,9 @@ def clientBackbone():
         from manualplaylistCreator import manualCreatePlaylist
         
         if "music" in message and "play" in message:
-            getMusic()
+            pass #getMusic()   #not my function 
         elif "create" in message and "playlist" in message:
-            pass #manualCreatePlaylist()
-        else:
-            pass #message="Whoops we haven't coded that in yet"
+            pass #manualCreatePlaylist()     #not my function
             
         thisSocket.send(message.encode())
               #send the message to the server

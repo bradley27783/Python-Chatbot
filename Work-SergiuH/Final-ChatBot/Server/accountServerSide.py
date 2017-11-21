@@ -1,6 +1,8 @@
 import pickle
 
 def accountServerSide(dictionary):
+    """Takes input as dictionary, returns an integer which tells the server what to do.
+    Handles main accountServerSide operations."""
     if __name__=="__main__":
         x=input("Do you want to delete the database?\n")
         if x == "Yes, I do, avocados are great.":     #deletes the databse if x is this 

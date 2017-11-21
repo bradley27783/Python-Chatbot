@@ -5,7 +5,7 @@ def serverBackbone():
     """Function which initializes the chatbot server."""
     host = "127.0.0.1"
         #this is the sever's IP, clients needs it to connect
-    port = 5008
+    port = 5009
         #server's port, needs to be the same as the client's
     thisSocket = socket.socket()
     thisSocket.bind((host,port))  
@@ -18,7 +18,7 @@ def serverBackbone():
     n=0
                   
     from accountServerSide import accountServerSide, infoHub, clientInfoRegister
-    from cursewordDetector import curseCounter
+    #from cursewordDetector import curseCounter  #not my function
     
     dictionary={}
     while n==0 or n==1:
@@ -78,7 +78,7 @@ def serverBackbone():
         
         returnMess = receivedMess
         
-        returnMess = curseCounter(receivedMess,username)  #checks for swear words 
+        #returnMess = curseCounter(receivedMess,username)  #checks for swear words 
                        
         if returnMess == receivedMess:
             returnMess = "Whoops, we haven't coded that in yet."
