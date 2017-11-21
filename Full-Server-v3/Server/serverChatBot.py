@@ -22,13 +22,13 @@ def serverBackbone():
     
     dictionary={}
     while n==0 or n==1:
-        receiveMess = conn.recv(1024).decode()
+        receivedMess = conn.recv(1024).decode()
             
-        receiveMess= receiveMess.split("       ")    #splits at 7 spaces, creates list 
+        receivedMess= receivedMess.split("       ")    #splits at 7 spaces, creates list 
     
-        dictionary["username"]=receiveMess[0]    
-        dictionary["password"]=receiveMess[1]    
-        dictionary["login"]=receiveMess[2]
+        dictionary["username"]=receivedMess[0]    
+        dictionary["password"]=receivedMess[1]    
+        dictionary["login"]=receivedMess[2]
             
         username = dictionary["username"]
             
@@ -48,7 +48,7 @@ def serverBackbone():
             
         conn.send(returnMess.encode())
         
-    receiveMess = conn.recv(1024).decode()
+    receivedMess = conn.recv(1024).decode()
     
     informationString=""
     
@@ -61,23 +61,29 @@ def serverBackbone():
         
     
     while True:
-        receiveMess = conn.recv(1024).decode()
-        if "   456   " in receiveMess:  #this means that the user doesn't have a terminal name 
+        receivedMess = conn.recv(1024).decode()
+        if "   456   " in receivedMess:  #this means that the user doesn't have a terminal name 
             
-            receiveMess=receiveMess[9:]  #this is the future terminal name 
-            infoHub(username,receiveMess,"","")  #index it 
+            receivedMess=receivedMess[9:]  #this is the future terminal name 
+            infoHub(username,receivedMess,"","")  #index it 
             
-            userInfoList[0]=receiveMess #ammend the list
+            userInfoList[0]=receivedMess #ammend the list
             
             conn.send(userInfoList[0].encode())  #send the terminal name back
             continue
-        if not receiveMess:
-            break 
-            
-        returnMess = receiveMess        
-        returnMess = curseCounter(receiveMess,username)
+        if not receivedMess:
+            break                   
         
-        print(userInfoList[0] + " wrote: " + str(receiveMess)) #prints to the server terminal for good measure 
+        receivedMess = receivedMess.lower()    #makes everything in lowercaps, makes easier to code around it 
+        
+        returnMess = receivedMess
+        
+        returnMess = curseCounter(receivedMess,username)  #checks for swear words 
+                       
+        if returnMess == receivedMess:
+            returnMess = "Whoops, we haven't coded that in yet."
+                
+        print(userInfoList[0] + " wrote: " + str(receivedMess)) #prints to the server terminal for good measure 
         conn.send(returnMess.encode())
             
     conn.close()

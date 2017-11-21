@@ -8,6 +8,7 @@ def clientBackbone():
     thisSocket.connect((host,port))
         #crucial bit of coding
     from accountClientSide import createUsername,createPassword,accountClientSide
+    from userInput import slow_type
            #imports the functions involved with account management
     print("Welcome to Zach Industries! We will now prompt you with the account manager.")
     
@@ -82,7 +83,7 @@ def clientBackbone():
         receivedMess = thisSocket.recv(1024).decode()
                      
         print("Zach: ",end="") 
-        print(receivedMess)    #Name of ChatBot
+        slow_type(receivedMess)    #Name of ChatBot
                
     thisSocket.close()
        
