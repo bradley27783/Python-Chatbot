@@ -2,7 +2,7 @@ import socket,sys,time
 
 def clientBackbone():
     host = "127.0.0.1"
-    port = 5009
+    port = 5010
         #credentials needed to connect to the server
     thisSocket = socket.socket()
     thisSocket.connect((host,port))
@@ -23,13 +23,18 @@ def clientBackbone():
         
         sentMsg= username+ "       " +password + "       " + login
                            #puts them into a string so we can send them accross 
+       
         thisSocket.send(sentMsg.encode())
-        
+
         n = thisSocket.recv(1024).decode()
-        if n== "Wrong":   
+
+        if n == "":
+            print("We are very sorry but the server is down at the moment!\nPlease contact Sergiu Harjau.")
+            return()  #prevents crash 
+        elif n == "Wrong":   
             print("Credentials don't match out database.")
             n=0
-        if n== "Confirmed":
+        if n == "Confirmed":
             print("You have successfullly logged in!")
             break
         else:
@@ -42,6 +47,10 @@ def clientBackbone():
     
     infoString= thisSocket.recv(1024).decode()
     
+    if infoString == "":
+            print("We are very sorry but the server is down at the moment!\nPlease contact Sergiu Harjau.")
+            return()   #prevents crash
+        
     userInfoList=infoString.split(" ")   #gets a list from the server with all the info about the uesr 
     
     if userInfoList[0] == "" or userInfoList == " ":   #if the client doesn't have a name, ask him for one 
@@ -56,6 +65,11 @@ def clientBackbone():
         thisSocket.send(terminalName.encode())   #index it into the server 
         
         terminalName= thisSocket.recv(1024).decode()   #receive it back
+        
+        if terminalName == "":
+            print("We are very sorry but the server is down at the moment!\nPlease contact Sergiu Harjau.")
+            return()
+        
         print("Everything is in order! Thanks.")
     else:
         terminalName=userInfoList[0]   #set the Terminal Name 
@@ -67,8 +81,8 @@ def clientBackbone():
         if message == "end": #keeps the conversation open until the user types end
             break
             
-        from youtube import getMusic
-        from manualplaylistCreator import manualCreatePlaylist
+        #from youtube import getMusic
+       # from manualplaylistCreator import manualCreatePlaylist
         
         if "music" in message and "play" in message:
             pass #getMusic()   #not my function 
@@ -79,7 +93,11 @@ def clientBackbone():
               #send the message to the server
                               
         receivedMess = thisSocket.recv(1024).decode()
-                     
+        
+        if receivedMess == "":
+            print("We are very sorry but the server is down at the moment!\nPlease contact Sergiu Harjau.")
+            return()
+        
         print("Zach: ",end="") 
         slow_type(receivedMess)    #Name of ChatBot
                
@@ -93,6 +111,8 @@ if __name__=="__main__":
         clientBackbone()
     except KeyboardInterrupt:
         print("\nShuting down. See you soon!")
+    except ConnectionRefusedError:
+        print("Server credentials are wrong!")
         
         
 

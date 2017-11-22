@@ -1,11 +1,10 @@
-
 import socket,sys,time
 
-def serverBackbone():
+def serverBackbone(port):
     """Function which initializes the chatbot server."""
     host = "127.0.0.1"
         #this is the sever's IP, clients needs it to connect
-    port = 5009
+    port = port
         #server's port, needs to be the same as the client's
     thisSocket = socket.socket()
     thisSocket.bind((host,port))  
@@ -23,9 +22,12 @@ def serverBackbone():
     dictionary={}
     while n==0 or n==1:
         receivedMess = conn.recv(1024).decode()
-            
+        
+        if receivedMess =="": 
+            serverBackbone(port+1)  #prevents crash 
+            return()
         receivedMess= receivedMess.split("       ")    #splits at 7 spaces, creates list 
-    
+               
         dictionary["username"]=receivedMess[0]    
         dictionary["password"]=receivedMess[1]    
         dictionary["login"]=receivedMess[2]
@@ -43,13 +45,15 @@ def serverBackbone():
         if n == 7:
             returnMess="Confirmed"    #when the user logs in, pull the userInfoList for him 
             userInfoList= infoHub(username,"","","")
-        else: 
-            returnMess=str(n)
+            conn.send(returnMess.encode())
             
-        conn.send(returnMess.encode())
+        else: 
+            returnMess=str(n)   
+            conn.send(returnMess.encode())
+        
         
     receivedMess = conn.recv(1024).decode()
-    
+
     informationString=""
     
     for word in userInfoList:   #transform the list into a format that we can send over 
@@ -72,13 +76,14 @@ def serverBackbone():
             conn.send(userInfoList[0].encode())  #send the terminal name back
             continue
         if not receivedMess:
-            break                   
+            serverBackbone(port+1)                  
         
-        receivedMess = receivedMess.lower()    #makes everything in lowercaps, makes easier to code around it 
+        receivedMess = receivedMess.lower()    #makes everything in lowercaps, easier to code around it 
         
         returnMess = receivedMess
         
         #returnMess = curseCounter(receivedMess,username)  #checks for swear words 
+                                                            #not my function
                        
         if returnMess == receivedMess:
             returnMess = "Whoops, we haven't coded that in yet."
@@ -90,6 +95,9 @@ def serverBackbone():
 
     
 if __name__=="__main__":
-    serverBackbone()
+    try:
+        serverBackbone(5008)
+    except KeyboardInterrupt:
+        print("\nShutting down")
         
         
