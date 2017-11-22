@@ -33,11 +33,7 @@ def functionCaller(message):
         
         
         
-    else:
-       return "What you have inputted wasn't found in my database\nTry typing 'help' for assistance"
+  else:
+    return "What you have inputted wasn't found in my database\nTry typing 'help' for assistance"
                   
-print(functionCaller(""))
-
-
-
-
+print(functionCaller("facts"))
