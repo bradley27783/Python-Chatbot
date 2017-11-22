@@ -292,15 +292,160 @@ def getMusic():
                                                         webbrowser.open_new(url15)
                                                         return()
                                                 elif choice1 == '':
-                                                        
-                                                
-                                                
-                                                
+                                                        print("16." + video16.title)         #Prints the exact title from youtube of the video
+                                                        print("17." + video17.title)
+                                                        print("18." + video18.title)
+                                                        print("19." + video19.title)
+                                                        print("20." + video20.title)
+
+                                                        while True:
+                                                                choice1 = input("Choose the correct song by typing the correct number:")
+                                                                if choice1 == '1':
+                                                                        print("Opening Browser...")
+                                                                        time.sleep(1)
+                                                                        print("Goodbye :)")
+                                                                        time.sleep(0.5)
+                                                                        webbrowser.open_new(url1) 
+                                                                        return()
+                                                                elif choice1 == '2':
+                                                                        print("Opening Browser...")
+                                                                        time.sleep(1)
+                                                                        print("Goodbye :)")
+                                                                        time.sleep(0.5)
+                                                                        webbrowser.open_new(url2)
+                                                                        return()
+                                                                elif choice1 == '3':
+                                                                        print("Opening Browser...")
+                                                                        time.sleep(1)
+                                                                        print("Goodbye :)")
+                                                                        time.sleep(0.5)
+                                                                        webbrowser.open_new(url3)
+                                                                        return()
+                                                                elif choice1 == '4':
+                                                                        print("Opening Browser...")
+                                                                        time.sleep(1)
+                                                                        print("Goodbye :)")
+                                                                        time.sleep(0.5)
+                                                                        webbrowser.open_new(url4)
+                                                                        return()
+                                                                elif choice1 == '5':
+                                                                        print("Opening Browser...")
+                                                                        time.sleep(1)
+                                                                        print("Goodbye :)")
+                                                                        time.sleep(0.5)
+                                                                        webbrowser.open_new(url5)
+                                                                        return()
+                                                                if choice1 == '6':
+                                                                        print("Opening Browser...")
+                                                                        time.sleep(1)
+                                                                        print("Goodbye :)")
+                                                                        time.sleep(0.5)
+                                                                        webbrowser.open_new(url6) 
+                                                                        return()
+                                                                elif choice1 == '7':
+                                                                        print("Opening Browser...")
+                                                                        time.sleep(1)
+                                                                        print("Goodbye :)")
+                                                                        time.sleep(0.5)
+                                                                        webbrowser.open_new(url7)
+                                                                        return()
+                                                                elif choice1 == '8':
+                                                                        print("Opening Browser...")
+                                                                        time.sleep(1)
+                                                                        print("Goodbye :)")
+                                                                        time.sleep(0.5)
+                                                                        webbrowser.open_new(url8)
+                                                                        return()
+                                                                elif choice1 == '9':
+                                                                        print("Opening Browser...")
+                                                                        time.sleep(1)
+                                                                        print("Goodbye :)")
+                                                                        time.sleep(0.5)
+                                                                        webbrowser.open_new(url9)
+                                                                        return()
+                                                                elif choice1 == '10':
+                                                                        print("Opening Browser...")
+                                                                        time.sleep(1)
+                                                                        print("Goodbye :)")
+                                                                        time.sleep(0.5)
+                                                                        webbrowser.open_new(url10)
+                                                                        return()
+                                                                elif choice1 == '11':
+                                                                        print("Opening Browser...")
+                                                                        time.sleep(1)
+                                                                        print("Goodbye :)")
+                                                                        time.sleep(0.5)
+                                                                        webbrowser.open_new(url11)
+                                                                        return()
+                                                                elif choice1 == '12':
+                                                                        print("Opening Browser...")
+                                                                        time.sleep(1)
+                                                                        print("Goodbye :)")
+                                                                        time.sleep(0.5)
+                                                                        webbrowser.open_new(url12)
+                                                                        return()
+                                                                elif choice1 == '13':
+                                                                        print("Opening Browser...")
+                                                                        time.sleep(1)
+                                                                        print("Goodbye :)")
+                                                                        time.sleep(0.5)
+                                                                        webbrowser.open_new(url13)
+                                                                        return()
+                                                                elif choice1 == '14':
+                                                                        print("Opening Browser...")
+                                                                        time.sleep(1)
+                                                                        print("Goodbye :)")
+                                                                        time.sleep(0.5)
+                                                                        webbrowser.open_new(url14)
+                                                                        return()
+                                                                elif choice1 == '15':
+                                                                        print("Opening Browser...")
+                                                                        time.sleep(1)
+                                                                        print("Goodbye :)")
+                                                                        time.sleep(0.5)
+                                                                        webbrowser.open_new(url15)
+                                                                        return()
+                                                                elif choice1 == '16':
+                                                                        print("Opening Browser...")
+                                                                        time.sleep(1)
+                                                                        print("Goodbye :)")
+                                                                        time.sleep(0.5)
+                                                                        webbrowser.open_new(url16)
+                                                                        return()
+                                                                elif choice1 == '17':
+                                                                        print("Opening Browser...")
+                                                                        time.sleep(1)
+                                                                        print("Goodbye :)")
+                                                                        time.sleep(0.5)
+                                                                        webbrowser.open_new(url17)
+                                                                        return()
+                                                                elif choice1 == '18':
+                                                                        print("Opening Browser...")
+                                                                        time.sleep(1)
+                                                                        print("Goodbye :)")
+                                                                        time.sleep(0.5)
+                                                                        webbrowser.open_new(url18)
+                                                                        return()
+                                                                elif choice1 == '19':
+                                                                        print("Opening Browser...")
+                                                                        time.sleep(1)
+                                                                        print("Goodbye :)")
+                                                                        time.sleep(0.5)
+                                                                        webbrowser.open_new(url19)
+                                                                        return()
+                                                                elif choice1 == '20':
+                                                                        print("Opening Browser...")
+                                                                        time.sleep(1)
+                                                                        print("Goodbye :)")
+                                                                        time.sleep(0.5)
+                                                                        webbrowser.open_new(url20)
+                                                                        return()
+                                                                else:
+                                                                        print("Sorry that was not an option, try again")
                                                 else:
                                                         print("Sorry that was not an option, try again")
                                 else:
                                         print("Sorry that was not an option, try again")                                       
-                                
                 else:
                         print("Sorry that was not an option, try again")
 
