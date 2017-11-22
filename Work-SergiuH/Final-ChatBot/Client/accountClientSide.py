@@ -13,7 +13,13 @@ def accountClientSide(userCount):
                 print("Only 1 or 0 please.")
     while True:
         if userCount==1:
-            x=int(input("We have detected that this username is linked to another account.\nIs this account yours?\n1-Yes\n0-No\n"))
+            while True:
+                x=input("We have detected that this username is linked to another account.\nIs this account yours?\n1-Yes\n0-No\n")
+                if x=="1" or x=="0":
+                    x=int(x)
+                    break
+                else:
+                    print("Only 1 or 0 please.")
         dictionary={}
         n=""
         if x==0:
