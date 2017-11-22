@@ -141,12 +141,16 @@ def checkMod():
 
         oscheck = platform.system()
 
-        if oscheck == 'Darwin':
+        if 'Darwin' in oscheck:
                 darwinInstall()
                 return()
 
         if 'Windows' in oscheck:
                 windowsInstall()
+                return()
+
+        if 'Linux' in oscheck:
+                darwinInstall()
                 return()
 
                 
