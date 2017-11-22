@@ -21,4 +21,5 @@ The difference between functionCaller-Vanilla.py and
 functionCaller.py, is that functionCaller-Vanilla.py is
 entirely my code and contains no other member's code.
 On the other hand, the functionCaller.py contains imports
-of members of my groups code and isn't successfully merged.
+of members of my groups code and isn't successfully merged
+(in this file I have stated where and who's code I am importing)
