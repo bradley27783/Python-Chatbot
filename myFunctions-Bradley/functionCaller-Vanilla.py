@@ -1,4 +1,5 @@
 def functionCaller(message):
+  '''This function takes the users input as a string, and calls the appropriate function'''
   l = ["asshole","arsehole","bitch","pissed","shit","son of a bitch","bastard","bellend","cock","dick","dickhead","knob","prick","pussy","twat","cunt","fuck","motherfucker","fuckoff","fuck off","fuckyou","fuck you","hello","hi","goodmorning","goodafternoon","goodevening","hey","i have to go","close","i am out","farewell","see you later","see ya later","peace","fact","youtube","search","playlist"]
   creator = ["create","creator"]
   artists = ['kanye west',"the beetles","rick astley","ed sheeran","taylor swift","eminem",'slim shady',"michael jackson","ellie goulding"]

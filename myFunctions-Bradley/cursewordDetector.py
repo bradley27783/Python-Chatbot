@@ -1,4 +1,5 @@
 def curseCounter(message):
+  '''This function detects if a user has swore. This is done by taking the input as a string, detecting the word and outputting a warning as a string'''
     cursewords=["asshole","arsehole","bitch","pissed","shit","son of a bitch","bastard","bellend","cock","dick","dickhead","knob","prick","pussy","twat","cunt","fuck","motherfucker","fuckoff","fuck off","fuckyou","fuck you"]
     sentMsg=""
     count=0

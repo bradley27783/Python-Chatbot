@@ -1,5 +1,5 @@
-def createPlaylist():
-    '''Takes the users message as a str and adds in to a list'''
+def createPlaylist(userInput):
+    '''This function takes the users message as a string and then outputs a list in a txt file'''
 playlist = []
 print("You humans are strange. Why do you need to listen to Music?\n ERROR! BOT RESETTING!\n"+(".")*10+"\n Sorry about that feel free to start adding songs")
 #Since the chatbot has the characteristics of a robot I added this line.
