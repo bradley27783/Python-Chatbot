@@ -26,7 +26,7 @@ def deleteDatabase(boolean):
 
 def accountMain():
     if deleteDatabase("")==False:
-        reutrn()            #put any numbers here to commence the database wipe
+        return()            #put any numbers here to commence the database wipe
     """Manages the bulk of account related operations."""
       #if the user gets the wrong pass, stops the program
     while True:
