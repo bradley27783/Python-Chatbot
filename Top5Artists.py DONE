@@ -1,0 +1,12 @@
+
+def TopPersonalArt(Artist):
+    from collections import Counter #imports module collections.counter
+
+    ArtistList=["Rihanna","Drake","Drake","DJ","Blue","Rihanna","DJ","Drake","George","George","Andreas"] #List which searches will be added
+    ArtistList.append(Artist) #adding artist name based on search to the list
+    
+    
+    c=Counter(ArtistList)  #making the list a counter to count elements in list
+          
+    return  str(c.most_common(5)) #sorts elements and give most 5 commons
+  
