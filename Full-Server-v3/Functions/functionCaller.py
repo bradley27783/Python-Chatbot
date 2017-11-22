@@ -7,28 +7,27 @@ def functionCaller(message):
   for word in l:
     i+=1
     if word in message:
-      if i in range(0,22):
-        return 1   #This is the curseCounter
-      if i in range(22,28):
-        return 2   #This is the check_for_greetings
-        
-      if i in range(28,35):
-        return 3   #This is the check_for_goodbye
-        
-      if i in range(35,36):
-        return 4   #This checks for the word Fact or Facts
-      
-      if i in range(36,38):
-        return 5     #This checks for anything to do with youtube and runs the function to play music
-      
-      if i in range(38,40):   #Finds the values 'playlist/s'
         for createword in creator:
           c+=1
-          if createword in message:     #Finds for additional words in the sentence, this is needed cause teh word 'playlist/s' is conflicting
-            if c in range(0,2):
-              return 6    #This is for the playlistcreator
-        else:
-          return 7    #This is to play a playlist
+          if createword in message:
+              if i in range(0,22):
+                return 1   #This is the curseCounter
+              if i in range(22,28):
+                return 2   #This is the check_for_greetings
+
+              if i in range(28,35):
+                return 3   #This is the check_for_goodbye
+
+              if i in range(35,36):
+                return 4   #This checks for the word Fact or Facts
+
+              if i in range(36,38):
+                return 5     #This checks for anything to do with youtube and runs the function to play music
+
+              if i in range(38,40) and c in range(0,2):   #Finds the values 'playlist/s'
+                  return 6    #This is for the playlistcreator
+              if i in range(38,40):
+                  return 7    #This is to play a playlist
         
         
         
@@ -36,4 +35,4 @@ def functionCaller(message):
   else:
     return "What you have inputted wasn't found in my database\nTry typing 'help' for assistance"
                   
-print(functionCaller("PLaYlisT"))
+print(functionCaller("create playlist"))
