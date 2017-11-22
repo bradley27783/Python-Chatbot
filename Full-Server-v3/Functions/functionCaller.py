@@ -19,7 +19,7 @@ def functionCaller(message):
         return 4   #This checks for the word Fact or Facts
       
       if i in range(36,38):
-        return 5
+        return 5     #This checks for anything to do with youtube and runs the function to play music
       
       if i in range(38,40):   #Finds the values 'playlist/s'
         for createword in creator:
@@ -36,4 +36,4 @@ def functionCaller(message):
   else:
     return "What you have inputted wasn't found in my database\nTry typing 'help' for assistance"
                   
-print(functionCaller("facts"))
+print(functionCaller("PLaYlisT"))
