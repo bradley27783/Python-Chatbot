@@ -1,15 +1,15 @@
-#This function a greetings function, this will display a greeting with the users name, the greeting will change depending on the current time.
-def check_for_greeting(sentence, user_name):
+unavailable#This function a greetings function, this will display a greeting with the users name, the greeting will change depending on the current time.
+def check_for_greeting(sentence):
     import datetime #Gets access to the datetime module.
     currentTime = datetime.datetime.now() #This displays the greeting depending on the time and the users name.
     currentTime.hour #current time in hour.
     0
-    if currentTime.hour < 12:
-         print("Good Morning " + user_name + "!")   #If the time is before 12am the chatbot will print a "Good morning" message to the user with his username.
-    elif 12 <= currentTime.hour < 18:
-         print("Good Afternoon " + user_name + "!") #If the time is before 18pm the chatbot will print a "Good Afternoon" message to the user with his username.
-    else:
-         print("Good Evening " + user_name + "!")   #For any other time the chatbot will print a "Good Evening" message to the user with his username.
+    #if currentTime.hour < 12:
+        # print("Good Morning " + user_name + "!")   #If the time is before 12am the chatbot will print a "Good morning" message to the user with his username.
+   # elif 12 <= currentTime.hour < 18:
+        # print("Good Afternoon " + user_name + "!") #If the time is before 18pm the chatbot will print a "Good Afternoon" message to the user with his username.
+   # else:
+        # print("Good Evening " + user_name + "!")   #For any other time the chatbot will print a "Good Evening" message to the user with his username.
 
     #If any of the words in the user's input was a greeting, return a greeting response.
     import random #Gets access to the random module.
@@ -22,7 +22,7 @@ def check_for_greeting(sentence, user_name):
                 return random.choice(greetings_response) #chatbot returns a message depending on what the user has entered.
     return("I did not understand what you said") #If the chatbot does not recognise the message thent it returns with a message.
 
-print(check_for_greeting("Greetings!", "Tom")) #This is a test code which cannot be implemented in the final chatbot.
+#print(check_for_greeting("Greetings!", "Tom")) #This is a test code which cannot be implemented in the final chatbot.
 
 #This is users mood/emotion function, it will look for the keywords that the user will enter and search for them in the list then give a reply
 def feelings_option(sentence):
