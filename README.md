@@ -11,14 +11,9 @@ consist of curseCount.txt,cursewordDetector.py,
 functionCaller-Vanilla.py,functionCaller.py
 manualplaylistCreator.py,manualplaylists.txt.
 
-I do apologise for some of the vulgar text that
-are in some of the lists but I felt that this
-should be a requirement in the Chatbot, because
-we don't want the users being rude or using vulgar
-language and this should stop them. The only problem is ,
-is that to stop them from doing this I need to be able
-to detect what they are saying, hence the list of curse
-words.
+In the cursewordCounter function I have replaced the
+cursewords with the placeholder values of: 1,2,3,4,5,6
+,7,8,9.
 
 The difference between functionCaller-Vanilla.py and
 functionCaller.py, is that functionCaller-Vanilla.py is
