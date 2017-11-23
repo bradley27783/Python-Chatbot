@@ -1,6 +1,7 @@
 def curseCounter(message):
-  '''This function detects if a user has swore. This is done by taking the input as a string, detecting the word and outputting a warning as a string'''
-    cursewords=["asshole","arsehole","bitch","pissed","shit","son of a bitch","bastard","bellend","cock","dick","dickhead","knob","prick","pussy","twat","cunt","fuck","motherfucker","fuckoff","fuck off","fuckyou","fuck you"]
+    '''This function detects if a user has swore. This is done by taking the input as a string, detecting the word and outputting a warning as a string'''
+    #The curseword list consists of numbers in place of actual cursewords because I don't want to submit code with vulgar language
+    cursewords=["1","2","3","4","5","6","7","8","9"]
     sentMsg=""
     count=0
     for element in cursewords:
@@ -37,3 +38,5 @@ def curseCounter(message):
             file.close()
         file.close()
     return (sentMsg)
+  
+print(curseCounter("3"))
