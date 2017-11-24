@@ -1,15 +1,19 @@
+#This fuction will retrieve the top 100 chart from billboard.com using an unnoficial api
+#Then print either the number 1 or the top 10 list
+
 def topCharts():
 
-    import billboard
+    print("Loading...")
+    import billboard #Imports the api library Billboard.py must be installed to use
     while True:
-        user_command = input("What would you like to know? ")
-        if 'number 1' in user_command:
-            chart = billboard.ChartData('hot-100')
-            topsong = chart[0]
+        userCommand = input("What would you like to know? : ")
+        if 'number 1' in userCommand:
+            chartList = billboard.ChartData('hot-100') #Retrieves the top 100 chart as a list
+            topsong = chart[0] #Chooses the first song in the list
             print("The number 1 song is: ")
             print(topsong)
-            exit()
-        if 'top 10' in user_command:
+            return()
+        if 'top 10' in userCommand:
             chart = billboard.ChartData('hot-100')
             song1 = chart[0]
             song2 = chart[1]
@@ -32,8 +36,11 @@ def topCharts():
             print("8) " + str(song8))
             print("9) " + str(song9))
             print("10) " + str(song10))
-            exit()
+        if userCommand == 'help' or userCommand == 'Help' or userCommand == 'HELP':
+            print("You can ask:")
+            print("What is the number 1 song")
+            print("What are the top 10 songs")
         else:
-            print("Sorry I don't understand what you are asking... ")
+            print("Sorry I don't understand what you are asking...\nType Help to see what you can say: ")
 
 topCharts()
