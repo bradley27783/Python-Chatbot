@@ -5,13 +5,13 @@ def accountServerSide(dictionary):
     Handles main accountServerSide operations."""
     if __name__=="__main__":
         x=input("Do you want to delete the database?\n")
-        if x == "Yes, I do, avocados are great.":     #deletes the databse if x is this 
+        if x == "Yes, I do, avocados are great.":     #deletes the database if x is this 
             f1=open("database.txt","w")
             print("You monster.")
             f1.close()
             return()       #if someone deletes the database, stops the program 
         else:
-            print("Nah, fam.")
+            print("Nah.")
             
     username=dictionary["username"]     #pulls out values to use 
     password=dictionary["password"]

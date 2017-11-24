@@ -23,9 +23,9 @@ def serverBackbone(port):
     while n==0 or n==1:
         receivedMess = conn.recv(1024).decode()
         
-        if receivedMess =="": 
-            serverBackbone(port+1)  #prevents crash 
+        if not receivedMess:   #prevents crash 
             return()
+        
         receivedMess= receivedMess.split("       ")    #splits at 7 spaces, creates list 
                
         dictionary["username"]=receivedMess[0]    
@@ -53,7 +53,10 @@ def serverBackbone(port):
         
         
     receivedMess = conn.recv(1024).decode()
-
+    
+    if not receivedMess:   #prevents crash 
+            return()
+    
     informationString=""
     
     for word in userInfoList:   #transform the list into a format that we can send over 
@@ -75,8 +78,9 @@ def serverBackbone(port):
             
             conn.send(userInfoList[0].encode())  #send the terminal name back
             continue
-        if not receivedMess:
-            serverBackbone(port+1)                  
+            
+        if not receivedMess:  #prevents crash 
+            return()                  
         
         receivedMess = receivedMess.lower()    #makes everything in lowercaps, easier to code around it 
         
@@ -96,7 +100,10 @@ def serverBackbone(port):
     
 if __name__=="__main__":
     try:
-        serverBackbone(5008)
+        port = 5008
+        while True:
+            print("Server initialised")
+            serverBackbone(port)
     except KeyboardInterrupt:
         print("\nShutting down")
         

@@ -2,7 +2,7 @@ import socket,sys,time
 
 def clientBackbone():
     host = "127.0.0.1"
-    port = 5015
+    port = 5008
         #credentials needed to connect to the server
     thisSocket = socket.socket()
     thisSocket.connect((host,port))
@@ -53,7 +53,7 @@ def clientBackbone():
         
     userInfoList=infoString.split(" ")   #gets a list from the server with all the info about the uesr 
     
-    if userInfoList[0] == "" or userInfoList == " ":   #if the client doesn't have a name, ask him for one 
+    if userInfoList[0] == "" or userInfoList[0] == " ":   #if the client doesn't have a name, ask him for one 
         print("It seems it's the first time you've ever logged in!")
         while True:
             terminalName = input("Input a name which the chatbot will call you: ") 
