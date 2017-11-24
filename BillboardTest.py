@@ -1,4 +1,4 @@
-#This fuction will retrieve the top 100 chart from billboard.com using an unnoficial api
+#This fuction will retrieve the top 100 chart from billboard.com using an unofficial api
 #Then print either the number 1 or the top 10 list
 
 def topCharts():
